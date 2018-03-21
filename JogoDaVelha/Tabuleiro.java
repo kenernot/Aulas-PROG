@@ -26,17 +26,17 @@ public class Tabuleiro {
 
 	public void desenharTabuleiro(int primeiraVez) {
 		if (primeiraVez == 0) {
-			System.out.printf("| %s | %s | %s |\n", q_1.getTipo(), q_2.getTipo(), q_3.getTipo());
+			System.out.printf("| %s | %s | %s |\n", this.q_1.getTipo(), this.q_2.getTipo(), this.q_3.getTipo());
 			System.out.println("-------------");
-			System.out.printf("| %s | %s | %s |\n", q_4.getTipo(), q_5.getTipo(), q_6.getTipo());
+			System.out.printf("| %s | %s | %s |\n", this.q_4.getTipo(), this.q_5.getTipo(), this.q_6.getTipo());
 			System.out.println("-------------");
-			System.out.printf("| %s | %s | %s |\n", q_7.getTipo(), q_8.getTipo(), q_9.getTipo());
+			System.out.printf("| %s | %s | %s |\n", this.q_7.getTipo(), this.q_8.getTipo(), this.q_9.getTipo());
 		} else {
-			System.out.printf("| 1 | 2 | 3 |\n", q_1.getTipo(), q_2.getTipo(), q_3.getTipo());
+			System.out.printf("| 1 | 2 | 3 |\n", this.q_1.getTipo(), this.q_2.getTipo(), this.q_3.getTipo());
 			System.out.println("-------------");
-			System.out.printf("| 4 | 5 | 6 |\n", q_4.getTipo(), q_5.getTipo(), q_6.getTipo());
+			System.out.printf("| 4 | 5 | 6 |\n", this.q_4.getTipo(), this.q_5.getTipo(), this.q_6.getTipo());
 			System.out.println("-------------");
-			System.out.printf("| 7 | 8 | 9 |\n", q_7.getTipo(), q_8.getTipo(), q_9.getTipo());			
+			System.out.printf("| 7 | 8 | 9 |\n", this.q_7.getTipo(), this.q_8.getTipo(), this.q_9.getTipo());			
 		}
 	}
 
@@ -119,37 +119,37 @@ public class Tabuleiro {
 	}
 	public boolean ganhou() {
 		boolean win = false;
-		if (this.q_1.getTipo() == this.q_2.getTipo() and (this.q_2.getTipo() == this.q_3.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		if (this.q_1.getTipo() == this.q_2.getTipo() && this.q_2.getTipo() == this.q_3.getTipo() && this.q_2.isPreenchido()) {
+			System.out.println ("Você Ganhou! 1");
 			win = true;
-		} else if (this.q_4.getTipo() == this.q_5.getTipo() and (this.q_5.getTipo() == this.q_6.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if ( this.q_4.getTipo() == this.q_5.getTipo() && this.q_5.getTipo() == this.q_6.getTipo() && this.q_5.isPreenchido() ) {
+			System.out.println ("Você Ganhou! 2");
 			win = true;
-		} else if (this.q_7.getTipo() == this.q_8.getTipo() and (this.q_8.getTipo() == this.q_9.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_7.getTipo() == this.q_8.getTipo() && this.q_8.getTipo() == this.q_9.getTipo() && this.q_8.isPreenchido()) {
+			System.out.println ("Você Ganhou! 3");
 			win = true;
-		} else if (this.q_1.getTipo() == this.q_5.getTipo() and (this.q_5.getTipo() == this.q_9.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_1.getTipo() == this.q_5.getTipo() && this.q_5.getTipo() == this.q_9.getTipo() && this.q_5.isPreenchido()) {
+			System.out.println ("Você Ganhou! 4");
 			win = true;
-		} else if (this.q_3.getTipo() == this.q_5.getTipo() and (this.q_5.getTipo() == this.q_7.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_3.getTipo() == this.q_5.getTipo() && this.q_5.getTipo() == this.q_7.getTipo() && this.q_5.isPreenchido()) {
+			System.out.println ("Você Ganhou! 5");
 			win = true;
-		} else if (this.q_1.getTipo() == this.q_4.getTipo() and (this.q_4.getTipo() == this.q_7.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_1.getTipo() == this.q_4.getTipo() && this.q_4.getTipo() == this.q_7.getTipo() && this.q_4.isPreenchido()) {
+			System.out.println ("Você Ganhou! 6");
 			win = true;
-		} else if (this.q_2.getTipo() == this.q_5.getTipo() and (this.q_5.getTipo() == this.q_8.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_2.getTipo() == this.q_5.getTipo() && this.q_5.getTipo() == this.q_8.getTipo() && this.q_5.isPreenchido()) {
+			System.out.println ("Você Ganhou! 7");
 			win = true;
-		} else if (this.q_3.getTipo() == this.q_6.getTipo() and (this.q_6.getTipo() == this.q_9.getTipo()) {
-			System.out.println ("Você Ganhou!");
+		} else if (this.q_3.getTipo() == this.q_6.getTipo() && this.q_6.getTipo() == this.q_9.getTipo() && this.q_6.isPreenchido()) {
+			System.out.println ("Você Ganhou! 8");
 			win = true;
-		} else if (getNJogada == 9) {
+		} else if (getNJogada() == 9) {
 			System.out.println ("Empate");
-			win = false;
+			win = true;
 		}
 		//Está Feito :)
 
-		return false;
+		return win;
 	}
 
 

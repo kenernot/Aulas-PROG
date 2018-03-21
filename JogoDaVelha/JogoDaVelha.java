@@ -17,6 +17,7 @@ public class JogoDaVelha {
 			System.out.println("Digite 'P' para iniciar a partida!");
 			play = scan.next().toUpperCase();
 		}
+		Game.play();
 	}
 
 }

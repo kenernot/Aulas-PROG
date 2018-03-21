@@ -11,8 +11,8 @@ public class Partida {
 	
 	public Partida() {
 
-		String nome;
-		String tipo;
+		String nome = "";
+		String tipo = "";
 
 		Scanner scan = new Scanner(System.in);
 		Random random = new Random();
@@ -25,15 +25,16 @@ public class Partida {
 			whoStarts = 1;
 		}
 	
-		this.jogador_2 = new Jogador(nome, tipo);
+		
 
 		System.out.println("*--- Jogo da velha ---*");
 		System.out.println("Digite o nome do primeiro jogador: ");
 		nome = scan.next();
 
-		while (tipo != "X" && tipo != "0") {
+		while (!tipo.equals("X") && !tipo.equals("0")) {
 			System.out.println("Digite o tipo do primeiro jogador (X ou 0 (zero)): ");
 			tipo = scan.next().toUpperCase();
+
 		}
 		this.jogador_1 = new Jogador(nome, tipo);
 
@@ -53,14 +54,20 @@ public class Partida {
 		boolean exit = false;
 		while (!exit) {
 			this.tabuleiro = new Tabuleiro();
-			System.out.printf("Por acaso, quem começa jogando é: %d\n", whoStarts);
+			if (whoStarts == 1) {
+				System.out.printf("Por acaso, quem começa jogando é: %s\n", this.jogador_1.getNome());
+			} else {
+				System.out.printf("Por acaso, quem começa jogando é: %s\n", this.jogador_2.getNome());
+			}
+			
 			boolean primeiraVez = true;
 			int movimento;
 			Scanner scan = new Scanner(System.in);
-			boolean pass = false;
+			
+			String playAgain = "";
 
-			while (this.tabuleiro.ganhou != true && this.tabuleiro.getNJogada() < 10) {
-
+			while (this.tabuleiro.ganhou() != true && this.tabuleiro.getNJogada() < 10) {
+				System.out.println("");
 				if (primeiraVez) {
 					this.tabuleiro.desenharTabuleiro(1);
 					primeiraVez = false;
@@ -68,11 +75,15 @@ public class Partida {
 					this.tabuleiro.desenharTabuleiro(0);
 				}
 
-				System.out.printf("Jogador %d faça seu movimento!", whoStarts);
+				boolean pass = false;
+
+				
 				if (whoStarts == 1) {
 					this.tabuleiro.setJogadorAtual(this.jogador_1);
+					System.out.printf("Jogador %s faça seu movimento!\n", this.jogador_1.getNome());
 				} else {
 					this.tabuleiro.setJogadorAtual(this.jogador_2);
+					System.out.printf("Jogador %s faça seu movimento!\n", this.jogador_2.getNome());
 				}
 
 				while (pass == false) {
@@ -99,9 +110,11 @@ public class Partida {
 
 			}
 
+			this.tabuleiro.desenharTabuleiro(0);
+
 			System.out.println("Deseja jogar novamente?");
 			System.out.println("(Digite 'S' para sim e qualquer outra coisa para não.)");
-			String playAgain = scan.next().toUpperCase;
+			playAgain = scan.next().toUpperCase();
 			if (!playAgain.equals("S")) {
 				exit = true;
 			}

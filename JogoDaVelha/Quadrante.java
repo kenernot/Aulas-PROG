@@ -16,6 +16,10 @@ public class Quadrante {
 	public boolean isPreenchido() {
 		return this.estado;
 	}
+
+	public String getTipo() {
+		return this.tipo;
+	}
 	
 
 }
