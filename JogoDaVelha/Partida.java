@@ -40,7 +40,7 @@ public class Partida {
 
 		System.out.println("Digite o nome do segundo jogador: ");
 		nome = scan.next();
-		if (this.jogador_1.getTipo() == "X") {
+		if (this.jogador_1.getTipo().equals("X")) {
 			tipo = "0";
 		} else {
 			tipo = "X";
