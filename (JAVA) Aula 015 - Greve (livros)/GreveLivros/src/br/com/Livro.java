@@ -6,6 +6,7 @@ public class Livro {
     private String editora;
     private String idioma;
 
+    
     public String getTitulo() {
         return titulo;
     }
